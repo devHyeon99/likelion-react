@@ -2,10 +2,13 @@
 // ES5 Constructor (like. Class) with Module Pattern (IIFE)
 
 const _ApiClient = (function () {
+  // Class
+  // constructor function
   function ApiClient(endpoint) {
     this._endpoint = endpoint;
   }
 
+  // Instance Methods
   ApiClient.prototype.readAll = function (page = 1, pageSize = 5) {
     return fetch(`${this._endpoint}?_page=${page}&_limit=${pageSize}`).then(
       (response) => response.json()
