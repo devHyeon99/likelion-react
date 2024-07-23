@@ -8,7 +8,7 @@ function nullish() {
   let value = 0; // 개발자의 의도!!!!
 
   let result = value || 100;
-  console.log({ "||": result });
+  console.log({ '||': result });
 
   // nullish: Web Native
   function isNullOrUndefined(value) {
@@ -25,12 +25,12 @@ function nullish() {
   // 🔶 null 병합 연산자 코드를 작성합니다.
   // 참고: https://mzl.la/3vQUYin | https://mzl.la/3PXiOQ9
   result = value ?? 100;
-  console.log({ "??": result });
+  console.log({ '??': result });
 }
 
 function optionalChaining() {
   const topic = {
-    _title: "매년 업데이트 되는 ECMAScript",
+    _title: '매년 업데이트 되는 ECMAScript',
     getTitle() {
       return this._title;
     },
@@ -39,15 +39,14 @@ function optionalChaining() {
     },
   };
 
-  if (topic && typeof topic === "object" && !Array.isArray(topic)) {
-    let title = undefined,
-      name = undefined;
+  if (topic && typeof topic === 'object' && !Array.isArray(topic)) {
+    let title = undefined, name = undefined;
 
-    if (typeof topic.getTitle === "function") {
+    if (typeof topic.getTitle === 'function') {
       title = topic.getTitle();
     }
 
-    if (typeof topic.getName === "function") {
+    if (typeof topic.getName === 'function') {
       name = topic.getName();
     }
 

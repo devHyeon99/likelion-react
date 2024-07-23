@@ -57,8 +57,6 @@ function combineObject() {
 
   // console.log(defaultOptions);
   console.log(combineOptions);
-  // 원래는 원본을 파괴 시키지만 처음에 빈 객체를 넣어주면 파괴시키지 않음
-  console.log(defaultOptions);
 
   // 🔶 전개 구문을 사용해 spreadCombineOptions 객체 병합 코드를 작성하세요.
   // 참고: https://mzl.la/43TCLgA

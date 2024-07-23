@@ -8,18 +8,18 @@
 const courses = [
   {
     id: 1,
-    title: "React 펀더멘탈",
-    url: "https://fundamentals.dev/react",
+    title: 'React 펀더멘탈',
+    url: 'https://fundamentals.dev/react',
   },
   {
     id: 2,
-    title: "React Router 펀더멘탈",
-    url: "https://fundamentals.dev/react-rouer",
+    title: 'React Router 펀더멘탈',
+    url: 'https://fundamentals.dev/react-rouer',
   },
   {
     id: 3,
-    title: "Recoil 펀더멘탈",
-    url: "https://fundamentals.dev/recoil",
+    title: 'Recoil 펀더멘탈',
+    url: 'https://fundamentals.dev/recoil',
   },
 ];
 
@@ -27,7 +27,7 @@ function spreadArray() {
   // Block Scope
   {
     const reactCourse = courses[0];
-    const restCourses = courses.slice(2);
+    const restCourses = courses.slice(1);
 
     console.log(reactCourse);
     console.log(restCourses);
@@ -71,16 +71,16 @@ function spreadObject() {
 
 function spreadRender() {
   const koreanFoods = {
-    caption: "한식 메뉴",
+    caption: '한식 메뉴',
     rows: [
-      { headline: "뚝배기 불고기", content: 8000 },
-      { headline: "스팸치즈볶음밥", content: 7500 },
-      { headline: "불고기낙지덮밥", content: 9000 },
+      { headline: '뚝배기 불고기', content: 8000 },
+      { headline: '스팸치즈볶음밥', content: 7500 },
+      { headline: '불고기낙지덮밥', content: 9000 },
     ],
   };
 
-  const renderedResult = renderTable(koreanFoods);
-  console.log(renderedResult);
+  const rendredResult = renderTable(koreanFoods);
+  console.log(rendredResult);
 
   function renderTable(data) {
     return removeSpaceHTMLString(/* html */ `
@@ -104,19 +104,19 @@ function spreadRender() {
             `
           );
         },
-        "")}
+        '')}
       </table>
     `);
   }
 }
 
 function numberWithComma(numberValue) {
-  return numberValue.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  return numberValue.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
 
 function removeSpaceHTMLString(htmlString) {
   return htmlString.replace(/\s+<|\n|>\s+/g, function ($1) {
-    return $1.indexOf("<") > -1 ? "<" : $1.indexOf(">") > -1 ? ">" : "";
+    return $1.indexOf('<') > -1 ? '<' : $1.indexOf('>') > -1 ? '>' : '';
   });
 }
 

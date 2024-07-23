@@ -2,20 +2,20 @@
 // Promise, Async await
 
 function practice() {
-  console.log("start!");
+  console.log('start!');
 
   // callback hell
   // 참고: https://bit.ly/3r5iUfe
   delay(() => {
-    console.log("1s");
+    console.log('1s');
     delay(() => {
-      console.log("2s");
+      console.log('2s');
       delay(() => {
-        console.log("3s");
+        console.log('3s');
         delay(() => {
-          console.log("4s");
+          console.log('4s');
           delay(() => {
-            console.log("end!");
+            console.log('end!');
           });
         });
       });
@@ -46,27 +46,27 @@ const delayPromise = (timeout = 1000) => {
 };
 
 function practice2() {
-  console.log("start!");
+  console.log('start!');
   // 🔶 delayPromise 함수를 사용해 1초마다 로그를 남기도록 작성합니다.
   delayPromise()
     .then(() => {
-      console.log("1s");
+      console.log('1s');
       return delayPromise(); // return promise
     })
     .then(() => {
-      console.log("2s");
+      console.log('2s');
       return delayPromise(); // return promise
     })
     .then(() => {
-      console.log("3s");
+      console.log('3s');
       return delayPromise(); // return promise
     })
     .then(() => {
-      console.log("4s");
+      console.log('4s');
       return delayPromise(); // return promise
     })
     .then(() => {
-      console.log("end");
+      console.log('end');
     });
 }
 
@@ -78,24 +78,24 @@ function practice2() {
 // const practice3 = async () => {
 async function practice3() {
   // 🔶 비동기 함수를 사용해 delayPromise 함수가 1초마다 로그를 남기도록 작성합니다.
-  console.log("start!");
+  console.log('start!');
 
   // + 1s
   await delayPromise();
-  console.log("1s");
+  console.log('1s');
   // + 1s
   await delayPromise();
-  console.log("2s");
+  console.log('2s');
   // + 1s
   await delayPromise();
-  console.log("3s");
+  console.log('3s');
   // + 1s
   await delayPromise();
-  console.log("4s");
+  console.log('4s');
 
   // + 1s
   await delayPromise();
-  console.log("end!");
+  console.log('end!');
 }
 
 // practice3();
@@ -109,7 +109,7 @@ const promise1 = () =>
   new Promise((resolve) => {
     const timeout = Math.random() * MAX_TIMEOUT;
     setTimeout(resolve, timeout, {
-      value: "X",
+      value: 'X',
       timeout: `${timeout.toFixed(2)}s`,
     });
   });
@@ -118,12 +118,12 @@ const promise2 = () =>
   new Promise((resolve) => {
     const timeout = Math.random() * MAX_TIMEOUT;
     setTimeout(resolve, timeout, {
-      value: "Y",
+      value: 'Y',
       timeout: `${timeout.toFixed(2)}s`,
     });
   });
 
-const promise3 = () => Promise.reject("❌ 오류 발생!");
+const promise3 = () => Promise.reject('❌ 오류 발생!');
 
 // Promise.all
 // [promise1, promise2, promise3, ..., promiseN].then(() => { ... })
@@ -137,11 +137,6 @@ Promise.all([promise1(), promise2()])
     console.error(error);
   });
 
-Promise.all([promise1(), promise2()])
-  .then((results) => console.log(results))
-  .catch((error) => {
-    console.error(error);
-  });
 // Promise.race
 // [promise1, promise2, promise3, ..., promiseN].then(() => { ... })
 // 참고: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise/race
