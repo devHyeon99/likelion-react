@@ -10,15 +10,23 @@ function nullish() {
   let result = value || 100;
   console.log({ '||': result });
 
+  // Library
+  // nullish: Web Native
   function isNullOrUndefined(value) {
     return value === null || value === undefined ? true : false;
   }
 
-  result = !isNullOrUndefined(value) ? value : 100;
+  function isNotNullOurUndefined(value) {
+    return !isNullOrUndefined(value);
+  }
+
+  result = isNotNullOurUndefined(value) ? value : 100;
   console.log({ isNullOrUndefined: result });
 
   // 🔶 null 병합 연산자 코드를 작성합니다.
   // 참고: https://mzl.la/3vQUYin | https://mzl.la/3PXiOQ9
+  result = value ?? 100;
+  console.log({'??' : result});
 }
 
 function optionalChaining() {
@@ -50,8 +58,8 @@ function optionalChaining() {
   // 🔶 optional chaining 코드를 사용해 조건 처리하세요.
   // 참고: https://mzl.la/3xx6Arc
 
-  console.log(topic.getTitle());
-  console.log(topic.getName());
+  console.log(topic?.getTitle?.());
+  console.log(topic?.getName?.());
 }
 
 function run() {

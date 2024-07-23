@@ -3,12 +3,12 @@
 
 function _sum() {
   const numbers = Array.from(arguments);
-  return numbers.reduce((result, number) => result + number, 0);
+  return numbers.reduce((result, number) => result + number);
 }
 
 // 🔶 나머지 매개변수를 사용해 sum 함수 코드 로직을 다시 작성합니다.
 // 참고: https://mzl.la/43Ro9yp
-const sum = () => {};
+const sum = (...numbers) => numbers.reduce((acc, cur) => acc + cur);
 
 let result1_1 = _sum(2, 3, 9, 12, 105);
 let result1_2 = sum(2, 3, 9, 12, 105);

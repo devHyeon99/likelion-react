@@ -4,6 +4,8 @@
 // - 템플릿 리터럴 구문을 사용해 마크업 스트링 생성
 // --------------------------------------------------------------------------
 
+// 데이터(상태: state)
+// 클라이언트 요청 => 서버 -> 클라이언트 응답 -> JSON
 const koreanFoods = {
   caption: '한식 메뉴',
   rows: [
@@ -13,6 +15,7 @@ const koreanFoods = {
   ],
 };
 
+// 테이블을 마크업해서 렌더링하는 기능
 function renderTable(data) {
   return [
     '<table class="table">',
@@ -31,9 +34,27 @@ function renderTable(data) {
 }
 
 // 🔶 renderTableString 함수를 작성하세요.
+// JavaScript 파일 안에서 마크업(markup: 구조 설계) 구성
+function renderTableString(state /* {caption: string, rows: [] } */) {
+  const markup = `
+    <table class="table">
+      <caption class="sr-only">${state.caption}</caption>
+      ${state.rows.reduce(function(htmlString, rowItem) {
+        return htmlString + `
+          <tr>
+            <th>${rowItem.headline}</th>
+            <td>${numberWithComma(rowItem.content)}원</td>
+          </tr>
+        `;
+      }, '')}
+    </table>
+  `;
+
+  return removeSpaceHTMLString(markup);
+}
 
 function run() {
-  const renderedResult = renderTable(koreanFoods);
+  const renderedResult = renderTableString(koreanFoods);
   return renderedResult;
 }
 
