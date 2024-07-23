@@ -9,20 +9,20 @@ function combineArray() {
   const countList = [101, 201, 301];
 
   // 두 배열을 하나로 병합하려면?
-  const nList = numberList.concat(countList);
-  console.log(nList);
+  const nList = numberList.concat(countList); // A.concat(B)
+  // console.log(nList);
 
   // [2, -2, 101, 201, 1] 이와 같은 결과 값을 원한다면?
   const myResult = numberList
     .slice(0, 2)
     .concat(countList.slice(0, 2))
-    .concat(numberList.at(-1));
-  console.log(myResult);
+    .concat([numberList.at(-1)]);
+  // console.log(myResult);
 
   const combineList = countList
-    .slice(0, 2)
-    .concat(numberList)
-    .concat(countList.slice(2));
+    .slice(0, 2) // [101, 201]
+    .concat(numberList) // [2, -2, 1] -> [101, 201, 2, -2, 1]
+    .concat(countList.slice(2)); // [101, 201, 2, -2, 1] -> [101, 201, 2, -2, 1, 301]
 
   console.log(combineList);
 
@@ -40,7 +40,7 @@ function combineArray() {
 }
 
 function combineObject() {
-  // 개발자가 작성한 기본 옵션
+  // 개발자 작성한 기본 옵션
   const defaultOptions = {
     startIndex: 0,
     loop: false,
@@ -51,8 +51,11 @@ function combineObject() {
     loop: true,
   };
 
-  // es5 (2009) Object.assign => 여러 오브젝트 병합 가능한 메서드
+  // ES5 (2009)
+  // Object.assign(obj1, obj2, obj3, ..., objN)
   const combineOptions = Object.assign({}, defaultOptions, customOptions);
+
+  // console.log(defaultOptions);
   console.log(combineOptions);
   // 원래는 원본을 파괴 시키지만 처음에 빈 객체를 넣어주면 파괴시키지 않음
   console.log(defaultOptions);

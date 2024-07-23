@@ -24,7 +24,7 @@ const courses = [
 ];
 
 function spreadArray() {
-  // Block Scope (지역 변수)
+  // Block Scope
   {
     const reactCourse = courses[0];
     const restCourses = courses.slice(2);
@@ -36,7 +36,7 @@ function spreadArray() {
   // 🔶 구조 분해 할당 구문을 사용해 courses 배열에서 항목을 분해 및 할당합니다.
   // 참고: https://mzl.la/3Jfrwpm
 
-  const [reactCourse, ...restCourses] = courses;
+  const [reactCourse, ...restCourses] = courses; // [reactCourse, reactRouter, recoil]
 
   console.log({ course: reactCourse });
   console.log({ rest: restCourses });
@@ -57,7 +57,13 @@ function spreadObject() {
 
   // 🔶 구조 분해 할당 구문을 사용해 reactCourse 객체에서 항목을 분해 및 할당합니다.
   // 참고: https://mzl.la/3Jfrwpm
+
+  // 별칭(alias)
   const { id: courseId, title: courseTitle, url: courseUrl } = reactCourse;
+  // const courseId = id;
+  // const courseTitle = title;
+  // const courseUrl = url;
+
   console.log({ courseId });
   console.log({ courseTitle });
   console.log({ courseUrl });
@@ -80,10 +86,14 @@ function spreadRender() {
     return removeSpaceHTMLString(/* html */ `
       <table class="table">
         <caption class="sr-only">${data.caption}</caption>
-        ${data.rows.reduce(function (htmlString, item) {
+        ${data.rows.reduce(function (
+          htmlString,
+          { headline, content } /* item: { headline, content } */
+        ) {
           // 🔶 구조 분해 할당 구문을 사용해 item 객체에서 항목을 분해 및 할당합니다.
           // 참고: https://mzl.la/3Jfrwpm
-          const { headline, content } = item;
+          // const { headline, content } = item;
+
           return (
             htmlString +
             /* html */ `
@@ -93,7 +103,8 @@ function spreadRender() {
               </tr>
             `
           );
-        }, "")}
+        },
+        "")}
       </table>
     `);
   }
