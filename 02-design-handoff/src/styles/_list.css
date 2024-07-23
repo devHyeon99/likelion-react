@@ -27,7 +27,6 @@
     gap: var(--contents-gap);
     padding: var(--padding);
     background: var(--gray-950);
-    cursor: move;
 
     &.dragging {
       opacity: 0.1;
