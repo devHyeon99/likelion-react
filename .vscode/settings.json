@@ -17,7 +17,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/*.js.map": {
       "when": "$(basename)"
     }
@@ -32,10 +32,10 @@
 
   // 언어 별, 포멧터 설정
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -120,7 +120,7 @@
   // Error Lens 설정
   "errorLens.enabled": true,
   "errorLens.codeLensEnabled": false,
-  "errorLens.fontSize": "14px",
+  "errorLens.fontSize": "12px",
   "errorLens.gutterIconsEnabled": true,
   "errorLens.gutterIconSet": "emoji",
   "errorLens.gutterIconSize": "16px",
