@@ -89,7 +89,7 @@
 
   // JavaScript 설정
   "javascript.autoClosingTags": true,
-  "javascript.format.enable": false,
+  "javascript.format.enable": true,
   "javascript.validate.enable": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
