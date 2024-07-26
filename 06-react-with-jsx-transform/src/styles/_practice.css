@@ -34,7 +34,7 @@ body {
     border-radius: var(--rounded-lg, 8px);
     background: var(--black, #000);
 
-    > img {
+    >img {
       --size: 64px;
       inline-size: var(--size);
       block-size: var(--size);
@@ -67,28 +67,5 @@ body {
       inline-size: var(--size);
     }
   }
-}
 
-.Avatars {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 1.25rem;
-
-  .Avatar-item {
-    position: relative;
-    width: 4rem;
-    height: 4rem;
-    list-style: none;
-  }
-
-  .avatar {
-    border-radius: 50%;
-    border: 1px solid #dbdbdb;
-  }
-
-  .status {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
 }
