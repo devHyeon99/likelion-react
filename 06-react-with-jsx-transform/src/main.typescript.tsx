@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 import React from "https://esm.sh/react";
 import { createRoot } from "https://esm.sh/react-dom";
 
@@ -39,7 +39,7 @@ function Avatar({ name, photo, status = "offline", size = 64 }): JSX.Element {
   );
 }
 
-function AvatarListPage() {
+function AvatarListPage(): JSX.Element {
   // JSX
   return (
     <ul className="AvatarList">
@@ -55,11 +55,14 @@ function AvatarListPage() {
       <li>
         <Avatar name="정민" photo="woman-01.jpg" />
       </li>
+      <li>
+        <Avatar name="재명" photo="woman-02.jpg" status="online" />
+      </li>
     </ul>
   );
 }
 
-const container = document.getElementById("react-app");
+const container = document.getElementById("react-app") as HTMLDivElement;
 
 if (container) {
   createRoot(container).render(<AvatarListPage />);

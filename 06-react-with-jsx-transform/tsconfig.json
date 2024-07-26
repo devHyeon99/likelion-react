@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "strict": true,
     "jsx": "react",
     "module": "ESNext",
-    "removeComments": true,
-    "moduleResolution": "Bundler"
+    "removeComments": true
   }
 }
