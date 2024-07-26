@@ -69,3 +69,27 @@ body {
   }
 
 }
+
+.Avatars {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.25rem;
+
+  .Avatar-item {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    list-style: none;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    border: 1px solid #DBDBDB;
+  }
+
+  .status {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
