@@ -1,9 +1,4 @@
-function DataBinding() {
-  // <div> 남용
-  // 요소를 선택하는 최후의 수단(기준)
-  // 1. HTML에는 이미 의미적인 요소가 준비되어 있음
-  // 2. 의미에 맞는 요소가 존재하지 않을 때 그 때!!! 비로서 <div> 사용
-
+function DataBinding(props) {
   return (
     <>
       <dt>데이터 바인딩(data binding)</dt>
@@ -16,8 +11,5 @@ function DataBinding() {
     </>
   );
 }
-
-// JSX runtime (classic): React.createElement(React.Fragment, props, children)
-// JSX runtime (automatic): jsx(React.Fragment, props)
 
 export default DataBinding;
