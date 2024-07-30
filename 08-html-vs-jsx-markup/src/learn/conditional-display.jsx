@@ -15,7 +15,7 @@ function ConditionalDisplay({ isShowImage }) {
   // - HTML 요소 hidden 속성 활용
 
   const pictureClassNames = `Picture ${isShowImage ? '' : 'hidden'}`.trim();
-  // console.log(pictureClassNames);
+  console.log(pictureClassNames);
 
   const pictureStyles = {
     display: isShowImage ? 'inline-block' : 'none',
@@ -23,6 +23,7 @@ function ConditionalDisplay({ isShowImage }) {
     lineHeight: 2.4,
     letterSpacing: '2px',
   };
+  console.log(pictureStyles);
 
   return (
     <>
