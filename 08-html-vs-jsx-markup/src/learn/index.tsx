@@ -1,6 +1,6 @@
-import JSX_Markup from './jsx-markup';
+import JSX_Markup from './jsx-markup.tsx';
 
-function Learn() {
+function Learn(): JSX.Element {
   return (
     <div className="Learn">
       <Headline />
@@ -12,7 +12,7 @@ function Learn() {
 
 export default Learn;
 
-function Headline() {
+function Headline(): JSX.Element {
   const abbrs = {
     html: 'Hyper Text Markup Language',
     jsx: {
