@@ -1,7 +1,7 @@
-import '@/styles/globals.css';
+import '@/styles/main.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import Learn from '@/learn';
+import AvatarListPage from '@/pages/AvatarListPage';
 
 const container = document.getElementById('react-app');
 
@@ -11,6 +11,6 @@ if (!container) {
 
 createRoot(container).render(
   <StrictMode>
-    <Learn />
+    <AvatarListPage />
   </StrictMode>
 );
