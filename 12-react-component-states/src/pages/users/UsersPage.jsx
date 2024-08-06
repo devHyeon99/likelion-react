@@ -17,15 +17,25 @@ import UsersList from './components/UsersList';
 function UsersPage() {
   // 리액트 컴포넌트 상태 관리
   const [users] = useState(usersData);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (userInput) => {
+    setSearchTerm(userInput);
+  };
 
   // 포함 가능한 로직
   // 상태 쓰기(C)/읽기(R)/수정(U)/삭제(D)
   // 오직 이 컴포넌트 내부에서만 가능 (리액트에 변경 요청)
 
+  // 사용자가 입력한 검색어로부터 필터링 된 사용자 목록을 [ UsersList ] 컴포넌트에 전달
+  const searchedUsersList = users.filter(
+    (user) => user.name.includes(searchTerm) || user.email.includes(searchTerm)
+  );
+
   return (
     <div className="UsersPage">
-      <UserSearchBox />
-      <UsersList users={users} />
+      <UserSearchBox searchTerm={searchTerm} onSearch={handleSearch} />
+      <UsersList users={searchedUsersList} />
       <UserListCount />
     </div>
   );

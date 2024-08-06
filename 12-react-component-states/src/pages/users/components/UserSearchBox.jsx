@@ -1,17 +1,26 @@
-import { useId, useState } from 'react';
+import { useId } from 'react';
+import { string, func } from 'prop-types';
 import './UserSearchBox.css';
 
-function UserSearchBox() {
+UserSearchBox.propTypes = {
+  searchTerm: string.isRequired,
+  onSearch: func, // optional
+};
+
+function UserSearchBox({ searchTerm, onSearch }) {
   const id = useId();
 
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
   const handleSearch = () => {
-    console.log(searchTerm);
+    // Side Effects
+    // DOM 접근, 속성 값 읽기
+    const input = document.getElementById(id);
+    const value = input.value.trim();
+
+    onSearch?.(value);
+    // if (value.length > 0) {
+    // } else {
+    //   alert('검색어를 입력해주세요.');
+    // }
   };
 
   return (
@@ -20,10 +29,10 @@ function UserSearchBox() {
         <label htmlFor={id}>사용자 검색</label>
         <input
           id={id}
-          // value={searchTerm}
           defaultValue={searchTerm}
-          // readOnly
+          // value={searchTerm}
           // onChange={handleChange}
+          // readOnly
           type="search"
           placeholder="사용자 이름 입력"
         />
