@@ -30,27 +30,21 @@
     ".npmrc": "dotenv"
   },
 
-  // Path Autocomplete 설정
-  "path-autocomplete.extensionOnImport": false,
-  "path-autocomplete.pathMappings": {
-    "@": "${folder}/src"
-  },
-
   // 언어 별, 포멧터 설정
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.html-language-features",
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.css-language-features",
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 
   // Emmet 설정
@@ -95,7 +89,7 @@
 
   // JavaScript 설정
   "javascript.autoClosingTags": true,
-  "javascript.format.enable": true,
+  "javascript.format.enable": false,
   "javascript.validate.enable": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
@@ -122,11 +116,11 @@
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.suggest.autoImports": true,
   "typescript.suggest.paths": false,
-
+  
   // Error Lens 설정
   "errorLens.enabled": true,
   "errorLens.codeLensEnabled": false,
-  "errorLens.fontSize": "12px",
+  "errorLens.fontSize": "14px",
   "errorLens.gutterIconsEnabled": true,
   "errorLens.gutterIconSet": "emoji",
   "errorLens.gutterIconSize": "16px",
@@ -135,5 +129,6 @@
     "warning": "⚠️",
     "info": "📢",
     "hint": "🔔"
-  }
+  },
+
 }
