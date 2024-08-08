@@ -4,27 +4,33 @@ import './UserSearchBox.css';
 
 UserSearchBox.propTypes = {
   searchTerm: string.isRequired,
-  onSearch: func, // optional
+  onSearch: func,
+  onReset: func,
 };
 
-function UserSearchBox({ searchTerm, onSearch }) {
+function UserSearchBox({ searchTerm, onSearch, onReset }) {
   const id = useId();
 
-  const handleSearch = () => {
-    // Side Effects
-    // DOM 접근, 속성 값 읽기
+  const handleSearch = (e) => {
+    e.preventDefault();
+
     const input = document.getElementById(id);
+    const button = input.closest('form').querySelector('[type="submit"]');
     const value = input.value.trim();
 
-    onSearch?.(value);
-    // if (value.length > 0) {
-    // } else {
-    //   alert('검색어를 입력해주세요.');
-    // }
+    if (value.length > 0) {
+      onSearch?.(value);
+      input.value = '';
+      button.focus();
+    } else {
+      alert('검색어를 입력해주세요.');
+      input.value = '';
+      input.focus();
+    }
   };
 
   return (
-    <div className="UserSearchBox">
+    <form className="UserSearchBox" onSubmit={handleSearch} onReset={onReset}>
       <div className="control">
         <label htmlFor={id}>사용자 검색</label>
         <input
@@ -37,10 +43,9 @@ function UserSearchBox({ searchTerm, onSearch }) {
           // readOnly
         />
       </div>
-      <button type="button" onClick={handleSearch}>
-        찾기
-      </button>
-    </div>
+      <button type="submit">찾기</button>
+      <button type="reset">목록 초기화</button>
+    </form>
   );
 }
 
