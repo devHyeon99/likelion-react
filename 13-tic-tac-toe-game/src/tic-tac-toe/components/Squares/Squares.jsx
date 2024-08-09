@@ -30,6 +30,18 @@ function Squares() {
 
   // 게임을 진행하는 함수
   const handlePlayGame = (index) => () => {
+    // 사용자가 액션을 취해 게임을 진행하려 할 때?
+    // 이미 게임이 종료된 경우?
+    if (winnerInfo) {
+      // GAME OVER 메시지를 사용자에게 출력
+      alert('GAME OVER');
+      // 함수 실행되지 않도록 함수 종료(return)
+      return;
+    }
+
+    // 아직 게임이 진행중인 경우?
+    // 아래 코드 실행
+
     // 아직 진행 중이라면? 게임 진행 (리액트에게 렌더 요청 -> 화면 변경)
     setSquares((prevSquares) => {
       const nextSquares = prevSquares.map((square, idx) => {
@@ -49,7 +61,6 @@ function Squares() {
   // const winner = checkeWinner(squares);
   // console.log('승자는?', winner);
   const winnerInfo = checkeWinner(squares);
-  console.log('승자는?', winnerInfo);
 
   // 게임 순서 (0, 1, 2, 3, ...)
   const gameIndex = squares.filter(Boolean).length; // 0
@@ -64,7 +75,6 @@ function Squares() {
     <div className={S.component}>
       {/* 리액트 (JSX) 마크업 : 리스트 렌더링 */}
       {squares.map((square, index) => {
-
         // 배경 색칠 공부를 위한 스타일 객체를 정의해봐요!
         const winnerStyles = {
           backgroundColor: null,
@@ -75,7 +85,7 @@ function Squares() {
         if (winnerInfo) {
           // 오호? 승자가 있군요! 승자의 조건을 알려주세요!
           const [x, y, z] = winnerInfo.condition;
-          
+
           // 그럼 승자의 스퀘어(말판)에 색칠을 할께요!
           if (index === x || index === y || index === z) {
             winnerStyles.backgroundColor = WINNERS_COLOR;
@@ -83,7 +93,11 @@ function Squares() {
         }
 
         return (
-          <Square key={index} style={winnerStyles} onPlay={handlePlayGame(index)}>
+          <Square
+            key={index}
+            style={winnerStyles}
+            onPlay={handlePlayGame(index)}
+          >
             {square}
           </Square>
         );
