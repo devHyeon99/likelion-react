@@ -11,8 +11,14 @@ h1,h2,h3,h4,h5,h6 {
 button {
   cursor: pointer;
   line-height: 1;
-}
 
-button:disabled {
-  cursor: not-allowed;
+  opacity: 0.75;
+
+  &:hover:not(:disabled) {
+    opacity: 1;
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
