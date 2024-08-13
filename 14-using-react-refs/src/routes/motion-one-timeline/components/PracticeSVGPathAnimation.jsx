@@ -10,50 +10,47 @@
 //   - [x] visibility
 //   - [x] pathLength
 // --------------------------------------------------------------------------
-import { string } from 'prop-types';
+import { timeline } from 'motion';
+import { useRef } from 'react';
+import CircleLine from './CircleLine';
 import S from './PracticeSVGPathAnimation.module.css';
 
-PracticeSVGPathAnimation.propTypes = {
-  color: string,
-};
+function PracticeSVGPathAnimation() {
+  const svgRef = useRef(null);
 
-function PracticeSVGPathAnimation({ color = '#4729B4 ' }) {
+  const handleSVGPathAnimation = () => {
+    const { current: el } = svgRef;
+
+    const [circle1, circle2] = Array.from(el.querySelectorAll('circle'));
+    const line = el.querySelector('line');
+
+    timeline(
+      [
+        [circle1, { strokeDashoffset: [1, 0], visibility: ['visible'] }],
+        [line, { strokeDashoffset: [1, 0], visibility: ['visible'] }],
+        [circle2, { strokeDashoffset: [1, 0], visibility: ['visible'] }],
+      ],
+      {
+        duration: 1.6,
+        easing: 'cubic-bezier(0.79,0.14,0.15,0.86)',
+      }
+    );
+  };
+
   return (
-    <div className={S.component}>
-      <svg width={210} height={41} viewBox="0 0 210 41" fill="none">
-        <circle
-          cx="20.5"
-          cy="20.5"
-          r="17.5"
-          stroke={color}
-          strokeDasharray={1}
-          strokeDashoffset={0}
-          strokeWidth={6}
-          pathLength={1}
-        />
-        <line
-          x1={35}
-          y1={20}
-          x2={173}
-          y2={20}
-          stroke={color}
-          strokeDasharray={1}
-          strokeDashoffset={0}
-          strokeWidth={6}
-          pathLength={1}
-        />
-        <circle
-          cx="189.5"
-          cy="20.5"
-          r="17.5"
-          stroke={color}
-          strokeDasharray={1}
-          strokeDashoffset={0}
-          strokeWidth={6}
-          pathLength={1}
-        />
-      </svg>
-    </div>
+    <>
+      <button
+        type="button"
+        className={S.button}
+        onClick={handleSVGPathAnimation}
+      >
+        SVG 패스 애니메이션
+      </button>
+
+      <div className={S.component}>
+        <CircleLine ref={svgRef} />
+      </div>
+    </>
   );
 }
 
