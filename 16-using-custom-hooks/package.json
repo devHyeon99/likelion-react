@@ -1,8 +1,8 @@
 {
   "private": true,
   "type": "module",
-  "name": "vite-react",
-  "description": "Vite + React 스캐폴딩 by yamoo9",
+  "name": "using-custom-hooks",
+  "description": "사용자 정의 훅 함수 작성 (컴포넌트 간, 로직 재사용)",
   "version": "0.1.0",
   "scripts": {
     "dev": "vite --host",
