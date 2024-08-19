@@ -7,7 +7,13 @@
 // - [ ] 데이터 뮤테이션 요청 응답에 문제가 발생한 경우, 오류 메시지를 렌더링합니다.
 // --------------------------------------------------------------------------
 
-import { createNote, readNotes } from '@/api/notes';
+import {
+  createNote,
+  deleteNote,
+  readNoteOne,
+  readNotes,
+  updateNote,
+} from '@/api/notes';
 import S from './DataMutation.module.css';
 import { useRef } from 'react';
 
@@ -39,6 +45,26 @@ function DataMutation() {
     formElement.reset();
   };
 
+  const handleReadNoteOne = async () => {
+    const responseData = await readNoteOne('bmzt8aw789y3y6x');
+    console.log(responseData);
+  };
+
+  const handleEditNote = async () => {
+    const editNoteId = 'bmzt8aw789y3y6x';
+    const editNote = {
+      id: editNoteId,
+      title: 'hh',
+      description: 'heahreaheearhahaerhearh',
+    };
+    const responseData = await updateNote(editNote);
+    console.log(responseData);
+  };
+
+  const handleDeleteNote = async () => {
+    await deleteNote('bmzt8aw789y3y6x');
+    alert('삭제성공');
+  };
   return (
     <div className={S.component}>
       <form ref={formRef}>
@@ -68,6 +94,15 @@ function DataMutation() {
         </button>
         <button type="button" onClick={handleReadNotes}>
           노트 읽기
+        </button>
+        <button type="button" onClick={handleReadNoteOne}>
+          노트 하나 가져오기
+        </button>
+        <button type="button" onClick={handleEditNote}>
+          노트 데이터 수정하기
+        </button>
+        <button type="button" onClick={handleDeleteNote}>
+          노트 데이터 삭제하기
         </button>
       </div>
     </div>
