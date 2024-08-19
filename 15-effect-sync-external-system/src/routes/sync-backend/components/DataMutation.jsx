@@ -85,7 +85,10 @@ function DataMutation() {
       <div
         role="group"
         style={{
+          marginBlockStart: 20,
           display: 'flex',
+          flexFlow: 'column',
+          alignItems: 'start',
           gap: 8,
         }}
       >
